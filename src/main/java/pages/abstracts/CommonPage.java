@@ -1,7 +1,8 @@
-package pages;
+package pages.abstracts;
 
 import components.TopBarNavigation;
 import org.openqa.selenium.WebDriver;
+import pages.BasePage;
 
 public class CommonPage extends BasePage {
 

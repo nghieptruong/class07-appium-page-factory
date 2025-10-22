@@ -1,11 +1,11 @@
-package pages;
+package pages.android;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
+import pages.abstracts.LoginPage;
 
-public class LoginPage extends CommonPage {
+public class AndroidLoginPage extends LoginPage {
 
     @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/nameET")
     WebElement txtUserName;
@@ -16,22 +16,26 @@ public class LoginPage extends CommonPage {
     @AndroidFindBy(id = "com.saucelabs.mydemoapp.android:id/loginBtn")
     WebElement btnLogin;
 
-    public LoginPage(WebDriver driver) {
+    public AndroidLoginPage(WebDriver driver) {
         super(driver);
     }
 
+    @Override
     public void enterUserName(String userName) {
         sendKeys(txtUserName, userName);
     }
 
+    @Override
     public void enterPassword(String password) {
         sendKeys(txtPassword, password);
     }
 
+    @Override
     public void clickLogin() {
         click(btnLogin);
     }
 
+    @Override
     public void login(String userName, String password) {
         enterUserName(userName);
         enterPassword(password);

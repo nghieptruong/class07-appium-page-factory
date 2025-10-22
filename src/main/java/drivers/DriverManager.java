@@ -10,6 +10,8 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 
+import java.time.Duration;
+
 public class DriverManager {
 
     private static final Logger logger = LogManager.getLogger(DriverManager.class);
@@ -33,6 +35,7 @@ public class DriverManager {
                 options.setPlatformVersion("15");
                 options.setAppPackage("com.saucelabs.mydemoapp.android");
                 options.setAppActivity("com.saucelabs.mydemoapp.android.view.activities.SplashActivity");
+                options.setAdbExecTimeout(Duration.ofSeconds(300));
                 webDriver = new AndroidDriver(options);
                 break;
             case "ios":

@@ -4,15 +4,16 @@ import base.BaseTest;
 import drivers.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.HomePage;
-import pages.LoginPage;
+import pages.abstracts.HomePage;
+import pages.abstracts.LoginPage;
+import pages.factories.PageFactory;
 
 public class TC01_Login_Test extends BaseTest {
 
     @Test(description = "Valid Login Test")
     public void testValidLogin() {
-        HomePage homePage = new HomePage(DriverManager.getDriver("android"));
-        LoginPage loginPage = new LoginPage(DriverManager.getDriver("android"));
+        HomePage homePage = PageFactory.getHomePage();
+        LoginPage loginPage = PageFactory.getLoginPage();
 
         //Step 1: Click on Main Menu -> Log In link
         homePage.getTopBarNavigation().openMainMenu();
