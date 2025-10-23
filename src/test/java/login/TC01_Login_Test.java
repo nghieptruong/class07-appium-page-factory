@@ -1,7 +1,6 @@
 package login;
 
 import base.BaseTest;
-import drivers.DriverManager;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import pages.abstracts.HomePage;
@@ -15,7 +14,7 @@ public class TC01_Login_Test extends BaseTest {
         HomePage homePage = PageFactory.getHomePage();
         LoginPage loginPage = PageFactory.getLoginPage();
 
-        //Step 1: Click on Main Menu -> Log In link
+//        //Step 1: Click on Main Menu -> Log In link
         homePage.getTopBarNavigation().openMainMenu();
         homePage.getTopBarNavigation().accessLoginMenuItem();
 

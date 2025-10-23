@@ -4,8 +4,11 @@ import drivers.DriverManager;
 import enums.PlatformType;
 import pages.abstracts.HomePage;
 import pages.abstracts.LoginPage;
+import pages.abstracts.TopBarNavigation;
 import pages.android.AndroidHomePage;
 import pages.android.AndroidLoginPage;
+import pages.components.AndroidTopBarNavigation;
+import pages.components.iOSTopBarNavigation;
 import pages.ios.IOSHomePage;
 import pages.ios.IOSLoginPage;
 import utils.PlatformUtils;
@@ -26,6 +29,16 @@ public class PageFactory {
             return new AndroidLoginPage(DriverManager.getCurrentDriver());
         } else if(PlatformUtils.getPlatformType() == PlatformType.IOS) {
             return new IOSLoginPage(DriverManager.getCurrentDriver());
+        } else {
+            return null;
+        }
+    }
+
+    public static TopBarNavigation getTopBarNavigation() {
+        if(PlatformUtils.getPlatformType() == PlatformType.ANDROID) {
+            return new AndroidTopBarNavigation(DriverManager.getCurrentDriver());
+        } else if(PlatformUtils.getPlatformType() == PlatformType.IOS) {
+            return new iOSTopBarNavigation(DriverManager.getCurrentDriver());
         } else {
             return null;
         }

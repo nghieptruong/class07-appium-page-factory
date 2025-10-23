@@ -1,11 +1,11 @@
-package components;
+package pages.components;
 
 import io.appium.java_client.pagefactory.AndroidFindBy;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import pages.BasePage;
+import pages.abstracts.TopBarNavigation;
 
-public class TopBarNavigation extends BasePage {
+public class AndroidTopBarNavigation extends TopBarNavigation {
 
     @AndroidFindBy(accessibility = "View menu")
     WebElement menuMain;
@@ -13,18 +13,21 @@ public class TopBarNavigation extends BasePage {
     @AndroidFindBy(accessibility = "Login Menu Item")
     WebElement loginMenuItem;
 
-    public TopBarNavigation(WebDriver driver) {
+    public AndroidTopBarNavigation(WebDriver driver) {
         super(driver);
     }
 
+    @Override
     public void openMainMenu() {
         click(menuMain);
     }
 
+    @Override
     public void accessLoginMenuItem() {
         click(loginMenuItem);
     }
 
+    @Override
     public void openMenuItem(String itemName) {
 
     }
